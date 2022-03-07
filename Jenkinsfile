@@ -31,7 +31,7 @@ pipeline{
     sh "scp -o StrictHostKeyChecking=no -r docker-files/ ${TEST_SERVER_IP}:/home/ec2-user"
     sh "ssh -o StrictHostKeyChecking=no ${TEST_SERVER_IP} 'bash ~/docker-files/docker-script.sh'"
     sh "ssh ${TEST_SERVER_IP} sudo docker login -u $USERNAME -p $PASSWORD"
-    sh "ssh ${TEST_SERVER_IP} bash /home/ec2-user/docker-files/docker-compose-script.sh ${IMAGE_NAME}"            
+    sh "ssh ${TEST_SERVER_IP} 'bash /home/ec2-user/docker-files/docker-compose-script.sh ${IMAGE_NAME}'"            
             }
         }
     }
